@@ -2,38 +2,51 @@ var
 	React = require('react'),
 	ReactDOM = require('react-dom');
 
-var FriendsContainer = React.createClass({
-	render: function() {
-		var name = this.props.name;
-		var friends = ['Cristian', 'Elijah', 'Sean', 'Alex', 'Peter'];
+var DUMMY_USER_DATA = {
+	imageURL: 'https://avatars0.githubusercontent.com/u/3311321?v=3&s=460',
+	name: 'Aaroh Mankad',
+	username: 'aarohmankad',
+};
 
-		return (
-			<div class='container'>
-				<h1> Hey {this.props.name}! </h1>
-				<ShowList elements={friends} />
-			</div>
-		)
-	}
-});
-
-var ShowList = React.createClass({
-	render: function() {
-		var elements = this.props.elements.map(function(element) {
-			return <li> { element } </li>;
-		});
-
+var
+	ProfilePic = function(props) {
 		return (
 			<div>
-				<h3> Friends: </h3>
-				<ul>
-					{ elements }
-				</ul>
+				<img src={ props.imageURL }/>
+			</div>
+		);
+	},
+	ProfileName = function(props) {
+		return (
+			<div>
+				<h2> { props.name } </h2>
+			</div>
+		);
+	},
+	ProfileLink = function(props) {
+		return (
+			<div>
+				<a
+					href={ 'http://github.com/' + props.username }
+					target='_blank'>
+					{ props.username }
+				</a>
+			</div>
+		);
+	},
+	Avatar = function(props) {
+		return (
+			<div>
+				<ProfilePic imageURL={ props.user.imageURL }/>
+				<ProfileName name={ props.user.name }/>
+				<ProfileLink username={ props.user.username }/>
 			</div>
 		)
-	}
-});
+	};
+
+
 
 ReactDOM.render(
-	<FriendsContainer name="Aaroh"/>,
+	<Avatar user={ DUMMY_USER_DATA }/>,
 	document.getElementById('app')
 );
