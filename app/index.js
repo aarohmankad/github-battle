@@ -3,7 +3,6 @@ var
 	ReactDOM = require('react-dom');
 
 var DUMMY_USER_DATA = {
-	imageURL: 'https://avatars0.githubusercontent.com/u/3311321?v=3&s=460',
 	name: 'Aaroh Mankad',
 	username: 'aarohmankad',
 };
@@ -12,7 +11,7 @@ var
 	ProfilePic = function(props) {
 		return (
 			<div>
-				<img src={ props.imageURL }/>
+				<img src={ 'http://github.com/' + props.username + '.png' }/>
 			</div>
 		);
 	},
@@ -37,14 +36,12 @@ var
 	Avatar = function(props) {
 		return (
 			<div>
-				<ProfilePic imageURL={ props.user.imageURL }/>
+				<ProfilePic username={ props.user.username }/>
 				<ProfileName name={ props.user.name }/>
 				<ProfileLink username={ props.user.username }/>
 			</div>
 		)
 	};
-
-
 
 ReactDOM.render(
 	<Avatar user={ DUMMY_USER_DATA }/>,
