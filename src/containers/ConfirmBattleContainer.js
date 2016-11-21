@@ -1,5 +1,6 @@
 import React from 'react'
 import ConfirmBattle from '../components/ConfirmBattle'
+import Github from '../services/Github'
 
 export default React.createClass({
 	contextTypes: {
@@ -13,7 +14,15 @@ export default React.createClass({
 	},
 	componentDidMount() {
 		var query = this.props.location.query
-		// FIXME: Fetch info from Github and updateState
+
+		Github
+			.getPlayersInfo([query.playerOne, query.playerTwo])
+			.then(playersInfo => {
+				this.setState({
+					isLoading: false,
+					playersInfo: playersInfo
+				})
+			})
 	},
 	render() {
 		return (
