@@ -14,5 +14,10 @@ export default {
 				return userInfo.data
 			})
 		})
-	}
+	},
+	battle(playersInfo) {
+		return playersInfo.map(playerInfo => {
+			return playerInfo.followers
+		})
+	},
 }

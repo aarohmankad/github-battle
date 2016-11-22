@@ -2,14 +2,15 @@ import React from 'react'
 
 export default React.createClass({
 	propTypes: {
-		user: React.PropTypes.object
+		score: React.PropTypes.number,
+		user: React.PropTypes.object,
 	},
 	render() {
 		return (
 			<div>
-				{ !!this.props.user.score && 
+				{ !!this.props.score && 
 				<li className='list-group-item'>
-					<h3>Score: { this.props.user.score }</h3>
+					<h3>Score: { this.props.score }</h3>
 				</li> }
 				
 				<li className='list-group-item'>
