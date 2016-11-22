@@ -24,11 +24,20 @@ export default React.createClass({
 				})
 			})
 	},
+	initiateBattle() {
+		this.context.router.push({
+			pathname: '/results',
+			state: {
+				playersInfo: this.state.playersInfo,
+			},
+		})
+	},
 	render() {
 		return (
 			<ConfirmBattle
 				isLoading={ this.state.isLoading }
-				playersInfo={ this.state.playersInfo }/>
+				playersInfo={ this.state.playersInfo }
+				initiateBattle={ this.initiateBattle }/>
 		)
 	}	
 })
