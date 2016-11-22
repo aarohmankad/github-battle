@@ -10,12 +10,14 @@ export default React.createClass({
 		}
 	},
 	componentDidMount() {
-		let scores = Github.battle(this.props.location.state.playersInfo)
-		
-		this.setState({
-			isLoading: false,
-			scores: scores,
-		})
+		Github
+			.battle(this.props.location.state.playersInfo)
+			.then(scores => {
+				this.setState({
+					isLoading: false,
+					scores: scores,
+				})
+			})
 	},
 	render() {
 		return (
