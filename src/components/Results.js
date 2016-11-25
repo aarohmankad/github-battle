@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import UserDetails from './UserDetails'
+import Loading from './Loading'
 
 export default React.createClass({
 	propTypes: {
@@ -11,7 +12,7 @@ export default React.createClass({
 	render() {
 		return (
 			this.props.isLoading
-			? <div> Loading!</div>
+			? 	<Loading />
 			: 	<div className='jumbotron col-sm-12 text-center'>
 					<h1>Results</h1>
 					

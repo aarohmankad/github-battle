@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router'
 import UserDetails from './UserDetails'
+import Loading from './Loading'
 
 const type = React.PropTypes
 
@@ -14,7 +15,7 @@ export default React.createClass({
 	render() {
 		return (
 			this.props.isLoading
-			? 	<p> LOADING </p>
+			? 	<Loading />
 			: 	<div className='jumbotron col-sm-12 text-center'>
 					<h1>Confirm Players</h1>
 					
