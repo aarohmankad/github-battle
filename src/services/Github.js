@@ -25,7 +25,6 @@ export default {
 		})
 	},
 	getPlayersInfo(players) {
-		// FIXME: refactor
 		return axios.all(players.map(username => {
 			return this.getUserInfo(username)
 		})).then(usersInfo => {

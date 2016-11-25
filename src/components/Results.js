@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router'
 import UserDetails from './UserDetails'
 
 export default React.createClass({
@@ -34,6 +35,16 @@ export default React.createClass({
 								user={ this.props.playersInfo[1] }
 								score={ this.props.scores[1] } />
 						</div>
+					</div>
+
+					<div className='col-sm-12'>
+						<Link to='/playerOne'>
+							<button
+								type='button'
+								className='btn btn-lg btn-info'>
+								Start Over
+							</button>
+						</Link>
 					</div>
 				</div>
 		)
